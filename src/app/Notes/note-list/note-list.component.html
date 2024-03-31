@@ -1,0 +1,80 @@
+<div>
+  <p>{{ tokenReceivedFromApi | json }}</p>
+  <hr />
+  <p>
+    {{ userList | json }}
+  </p>
+</div>
+
+<div class="container-fluid">
+  <h1>Home Page</h1>
+  <h2>Welcome {{ usernameReceivedFromApi }}</h2>
+  <!-- <div>
+    <button class="btn btn-primary" type="button" (click)="getAllUsers()">
+      Get All Users
+    </button>
+  </div>
+  <br /> -->
+  <div>
+    <button class="btn btn-warning" type="button" (click)="test()">Test</button>
+    <button
+      style="margin-left: 20px"
+      class="btn btn-danger"
+      type="button"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+  </div>
+  <br />
+  <div>Current Time Is: {{ currentDate }}</div>
+  <br />
+  <div>JWT Expires At: {{ jwtExpiryDate }}</div>
+  <br />
+  <div>
+    <button class="btn btn-primary" type="button" (click)="getAllNotes()">
+      Get All Notes
+    </button>
+    <button
+      style="margin-left: 20px"
+      class="btn btn-secondary"
+      type="button"
+      (click)="getNote()"
+    >
+      Get Note
+    </button>
+    <button
+      style="margin-left: 20px"
+      class="btn btn-primary"
+      type="button"
+      (click)="newNote()"
+    >
+      New Note
+    </button>
+  </div>
+  <br />
+  <div>
+    <table border-collapse: collapse id="noteTable">
+      <tr>
+        <th>Id</th>
+        <th style="padding: 0px 0px 5px 20px">Note</th>
+        <th style="padding: 0px 0px 5px 20px">Date Created</th>
+      </tr>
+      <tr *ngFor="let noteItem of noteList; let i = index">
+        <td>{{ noteItem.id }}</td>
+        <td style="padding: 5px 0px 5px 20px">{{ noteItem.note }}</td>
+        <td style="padding: 5px 0px 5px 20px">{{ noteItem.dateCreated }}</td>
+      </tr>
+    </table>
+  </div>
+  <!-- <div>
+    <pre>
+      {{ noteListJSON | json }}
+    </pre>
+  </div> -->
+  <!-- <div><button type="button" (click)="getUser()">Get User</button></div> -->
+  <!-- <div><button type="button" (click)="createUser()">Create User</button></div>
+  <div><button type="button" (click)="updateUser()">Update User</button></div>
+  <div><button type="button" (click)="deleteUser()">Delete User</button></div> -->
+</div>
+<!-- <router-outlet></router-outlet> -->

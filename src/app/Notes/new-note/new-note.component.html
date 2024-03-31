@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <h1>New Note</h1>
+
+  <form [formGroup]="newNoteForm" (ngSubmit)="createNote()">
+    <div class="form-group">
+      <label>Note</label>
+      <input
+        [class.is-invalid]="
+          newNoteForm.get('note')?.invalid && newNoteForm.get('note')?.touched
+        "
+        formControlName="note"
+        type="text"
+        class="form-control"
+      />
+      <div *ngIf="getNote!.invalid && getNote!.touched">
+        <small *ngIf="(getNote?.errors)!.required" class="text-danger"
+          >Note is required</small
+        >
+        <small *ngIf="(getNote?.errors)!.minlength" class="text-danger"
+          >Note must be minimum 5 characters</small
+        >
+      </div>
+    </div>
+    <br />
+    <div>
+      <button class="btn btn-primary" type="submit">Create Note</button>
+      <!-- <a routerLink="/note-list"
+          ><button class="btn btn-primary" type="submit">Login</button></a
+        > -->
+    </div>
+  </form>
+</div>
